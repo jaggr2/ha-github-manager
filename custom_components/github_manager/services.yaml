@@ -1,0 +1,208 @@
+dispatch_workflow:
+  fields:
+    workflow:
+      required: true
+      example: "deploy.yml"
+      selector:
+        text:
+    ref:
+      required: false
+      example: "main"
+      selector:
+        text:
+    inputs:
+      required: false
+      selector:
+        object:
+    repo:
+      required: false
+      example: "jaggr2/home-control-server-config"
+      selector:
+        text:
+
+cancel_run:
+  fields:
+    run_id:
+      required: true
+      example: 1234567890
+      selector:
+        number:
+          mode: box
+    repo:
+      required: false
+      selector:
+        text:
+
+rerun_run:
+  fields:
+    run_id:
+      required: true
+      example: 1234567890
+      selector:
+        number:
+          mode: box
+    failed_only:
+      required: false
+      default: false
+      selector:
+        boolean:
+    repo:
+      required: false
+      selector:
+        text:
+
+create_issue:
+  fields:
+    title:
+      required: true
+      example: "Backup job failed on derog-server"
+      selector:
+        text:
+    body:
+      required: false
+      selector:
+        text:
+          multiline: true
+    labels:
+      required: false
+      selector:
+        object:
+    assignees:
+      required: false
+      selector:
+        object:
+    repo:
+      required: false
+      selector:
+        text:
+
+comment_issue:
+  fields:
+    number:
+      required: true
+      example: 42
+      selector:
+        number:
+          mode: box
+    body:
+      required: true
+      selector:
+        text:
+          multiline: true
+    repo:
+      required: false
+      selector:
+        text:
+
+update_issue:
+  fields:
+    number:
+      required: true
+      example: 42
+      selector:
+        number:
+          mode: box
+    state:
+      required: false
+      selector:
+        select:
+          options:
+            - "open"
+            - "closed"
+    title:
+      required: false
+      selector:
+        text:
+    body:
+      required: false
+      selector:
+        text:
+          multiline: true
+    labels:
+      required: false
+      selector:
+        object:
+    assignees:
+      required: false
+      selector:
+        object:
+    repo:
+      required: false
+      selector:
+        text:
+
+create_pull_request:
+  fields:
+    title:
+      required: true
+      example: "feat: rack dashboard digest card"
+      selector:
+        text:
+    head:
+      required: true
+      example: "feature/digest-card"
+      selector:
+        text:
+    base:
+      required: false
+      example: "main"
+      selector:
+        text:
+    body:
+      required: false
+      selector:
+        text:
+          multiline: true
+    draft:
+      required: false
+      default: false
+      selector:
+        boolean:
+    repo:
+      required: false
+      selector:
+        text:
+
+merge_pull_request:
+  fields:
+    number:
+      required: true
+      example: 42
+      selector:
+        number:
+          mode: box
+    merge_method:
+      required: false
+      default: "merge"
+      selector:
+        select:
+          options:
+            - "merge"
+            - "squash"
+            - "rebase"
+    commit_title:
+      required: false
+      selector:
+        text:
+    commit_message:
+      required: false
+      selector:
+        text:
+          multiline: true
+    repo:
+      required: false
+      selector:
+        text:
+
+close_pull_request:
+  fields:
+    number:
+      required: true
+      example: 42
+      selector:
+        number:
+          mode: box
+    repo:
+      required: false
+      selector:
+        text:

@@ -1,0 +1,50 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to GitHub",
+        "description": "Connect a GitHub repository. Use a fine-grained personal access token scoped to this repository with **Actions**, **Issues** and **Pull requests** read & write permissions.",
+        "data": {
+          "repo": "Repository",
+          "token": "Personal access token",
+          "api_url": "API URL"
+        },
+        "data_description": {
+          "repo": "In owner/name form, e.g. jaggr2/home-control-server-config.",
+          "token": "Stored in the Home Assistant configuration entry, not in secrets.yaml.",
+          "api_url": "Defaults to the public GitHub API. Point this at a GitHub Enterprise server if needed."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate GitHub Manager",
+        "description": "The stored token no longer works. Enter a new fine-grained personal access token for `{repo}`.",
+        "data": {
+          "token": "Personal access token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to reach the GitHub API.",
+      "invalid_auth": "Authentication failed — check the token and its permissions.",
+      "invalid_repo": "Repository not found (use owner/name) or the token cannot see it.",
+      "unknown": "Unexpected error — see the Home Assistant logs."
+    },
+    "abort": {
+      "already_configured": "This repository is already configured.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "GitHub Manager options",
+        "data": {
+          "poll_interval": "Poll interval (seconds)"
+        },
+        "data_description": {
+          "poll_interval": "How often workflow runs, issues and pull requests are refreshed (minimum 30 seconds)."
+        }
+      }
+    }
+  }
+}

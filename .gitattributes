@@ -1,0 +1,4 @@
+# Keep all textual files LF (also on Windows checkouts).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
