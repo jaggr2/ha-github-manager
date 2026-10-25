@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Connect to GitHub",
-        "description": "Connect a GitHub repository. Use a fine-grained personal access token scoped to this repository with **Actions**, **Issues** and **Pull requests** read & write permissions.",
+        "description": "Connect a GitHub repository. Use a fine-grained personal access token scoped to this repository with **Contents**, **Actions**, **Issues** and **Pull requests** read & write permissions.",
         "data": {
           "repo": "Repository",
           "token": "Personal access token",

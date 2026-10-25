@@ -54,6 +54,8 @@ payload includes `number`/`run_id`, `title`/`workflow`, `url`, `conclusion`.
 Create a **fine-grained personal access token** limited to the one repository
 with these permissions:
 
+- Contents: **Read and write** (needed to resolve refs when creating/merging
+  pull requests)
 - Actions: **Read and write**
 - Issues: **Read and write**
 - Pull requests: **Read and write**

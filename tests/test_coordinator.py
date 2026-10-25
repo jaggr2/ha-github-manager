@@ -90,6 +90,11 @@ async def test_issue_opened_and_closed_events(
     closed = [event.data["event_type"] for event in events]
     assert "issue_closed" in closed
     assert {event.data["number"] for event in events} == {12, 13}
+    # closing events carry the title/url from the stored snapshot
+    for event in events:
+        if event.data["event_type"] == "issue_closed":
+            assert event.data["title"] is not None
+            assert event.data["url"] is not None
 
 
 async def test_event_entity_updates(hass: HomeAssistant, setup_entry, mock_api) -> None:

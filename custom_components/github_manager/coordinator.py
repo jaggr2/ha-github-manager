@@ -147,7 +147,7 @@ class GitHubManagerCoordinator(DataUpdateCoordinator[GitHubManagerData]):
                         {
                             "number": number,
                             "title": issue.get("title"),
-                            "url": issue.get("html_url"),
+                            "url": issue.get("url"),
                         },
                     )
                 )
@@ -180,7 +180,7 @@ class GitHubManagerCoordinator(DataUpdateCoordinator[GitHubManagerData]):
                         {
                             "number": number,
                             "title": pull.get("title"),
-                            "url": pull.get("html_url"),
+                            "url": pull.get("url"),
                         },
                     )
                 )
