@@ -15,7 +15,8 @@ async def test_setup_creates_entities(hass: HomeAssistant, setup_entry) -> None:
     registry = er.async_get(hass)
     unique_ids = {
         entity.unique_id
-        for entity in registry.async_entries_for_config_entry(setup_entry.entry_id)
+        for entity in registry.entities.values()
+        if entity.config_entry_id == setup_entry.entry_id
     }
     base = setup_entry.entry_id
     assert f"{base}_open_issues" in unique_ids
